@@ -1,0 +1,6 @@
+{
+    {{ range gets "/services/*" }}
+    "{{base .Key}}":"{{ .Value }}",
+    {{ end }}
+    "googledns":"8.8.8.8"
+}

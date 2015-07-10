@@ -1,0 +1,16 @@
+[template]
+# The name of the template that will be used to render the application's configuration file
+# Confd will look in `/etc/conf.d/templates` for these files by default
+src = "dnsZone.tmpl"
+
+# The location to place the rendered configuration file
+dest = "/usr/local/bin/node_modules/cloudflare-diff/dnsZone.json"
+
+# The etcd keys or directory to watch.  This is where the information to fill in
+# the template will come from.
+keys = [ "/services" ]
+
+# File ownership and mode information
+owner = "root"
+mode = "0644"
+reload_cmd = "cd /usr/local/bin;/usr/local/bin/node node_modules/cloudflare-diff/index.js"
